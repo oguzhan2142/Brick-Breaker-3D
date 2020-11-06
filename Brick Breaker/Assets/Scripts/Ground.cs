@@ -12,8 +12,11 @@ public class Ground : MonoBehaviour
     private Renderer ren;
 
 
+    private AudioSource source;
+
     void Start()
     {
+        source = GetComponent<AudioSource>();
         ren = GetComponent<Renderer>();
     }
 
@@ -34,5 +37,15 @@ public class Ground : MonoBehaviour
                 ren.material = normalMat;
             }
         }
+    }
+
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.tag == "Ball" && Skills.isGroundState)
+        {
+            source.Play();
+        }
+
     }
 }

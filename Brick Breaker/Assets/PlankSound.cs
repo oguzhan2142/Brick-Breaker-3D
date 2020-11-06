@@ -10,6 +10,8 @@ public class PlankSound : MonoBehaviour
     private AudioSource source;
 
     [SerializeField] private AudioClip[] hitPlankSounds = null;
+    [SerializeField] private AudioClip hitMetalSound = null;
+
 
     void Start()
     {
@@ -21,13 +23,18 @@ public class PlankSound : MonoBehaviour
 
         if (other.collider.tag == "Ball")
         {
-
-
-
-            if (ball.ballState != Ball.BallState.FirstShoot)
+            if (Skills.isStoneStand)
             {
-                source.clip = hitPlankSounds[Random.Range(0, hitPlankSounds.Length)];
+                source.clip = hitMetalSound;
                 source.Play();
+            }
+            else
+            {
+                if (ball.ballState != Ball.BallState.FirstShoot)
+                {
+                    source.clip = hitPlankSounds[Random.Range(0, hitPlankSounds.Length)];
+                    source.Play();
+                }
             }
         }
     }
