@@ -77,6 +77,52 @@ public class Ball : MonoBehaviour
             }
         }
 
+        
+
+
+        updateMaterial();
+
+        updateBallState();
+
+        speedCheck();
+
+        uppperBoundCheck();
+
+        if (ballState == Ball.BallState.FirstShoot && mouseDown)
+        {
+            calculateHitVector();
+            drawLine();
+        }
+
+        if (Skills.isFlameState)
+        {
+            rb.velocity = rb.velocity.normalized * MAX_SPEED;
+        }
+
+        leftRightBoundCheck();
+        lastFrameVelocity = rb.velocity;
+    }
+
+    private void calculateHitVector()
+    {
+        Vector2 mousePos = Input.mousePosition;
+        Vector2 ball2D = cam.WorldToScreenPoint(transform.position);
+        Vector3 dir = -mousePos + ball2D;
+        dirMagnitute = dir.magnitude;
+        Vector3 dirNormalized = dir.normalized;
+        power = dirMagnitute / MAX_MAGNITUTE * MAX_POWER;
+        hitVector = new Vector3(dirNormalized.x, dirNormalized.y, 0) * power;
+    }
+
+    private void drawLine()
+    {
+        lineRenderer.positionCount = 2;
+        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(1, (hitVector.normalized * LINE_LENGTH) + transform.position);
+    }
+
+    private void updateMaterial()
+    {
         if (materialState.Equals(MaterialState.normal) && !ren.material.Equals(normalMaterial))
         {
             ren.material = normalMaterial;
@@ -88,25 +134,32 @@ public class Ball : MonoBehaviour
             fireObject.SetActive(true);
 
         }
+    }
 
+    private void leftRightBoundCheck()
+    {
+        screenPosition = Camera.main.WorldToScreenPoint(transform.position);
 
-
-        if (rb.velocity.magnitude > MINIMUM_MAGNITUTE_FOR_AIR_STATE)
+        if (screenPosition.x < 0)
         {
-            ballState = BallState.OnAir;
+            rb.velocity = new Vector3(Mathf.Abs(rb.velocity.x), rb.velocity.y, rb.velocity.z);
         }
-        else
+        if (screenPosition.x > Screen.width)
         {
-            ballState = BallState.FirstShoot;
+            rb.velocity = new Vector3(-Mathf.Abs(rb.velocity.x), rb.velocity.y, rb.velocity.z);
         }
+    }
 
-
+    private void speedCheck()
+    {
         if (rb.velocity.magnitude > MAX_SPEED)
         {
             rb.velocity = rb.velocity.normalized * MAX_SPEED;
         }
+    }
 
-
+    private void uppperBoundCheck()
+    {
         if (currentBlock)
         {
 
@@ -121,49 +174,19 @@ public class Ball : MonoBehaviour
         {
             currentBlock = GameObject.FindWithTag("Block").GetComponent<Block>();
         }
-
-
-
-        if (ballState == Ball.BallState.FirstShoot && mouseDown)
-        {
-
-            Vector2 mousePos = Input.mousePosition;
-            Vector2 ball2D = cam.WorldToScreenPoint(transform.position);
-            Vector3 dir = -mousePos + ball2D;
-            dirMagnitute = dir.magnitude;
-            Vector3 dirNormalized = dir.normalized;
-            power = dirMagnitute / MAX_MAGNITUTE * MAX_POWER;
-            hitVector = new Vector3(dirNormalized.x, dirNormalized.y, 0) * power;
-
-            lineRenderer.positionCount = 2;
-            lineRenderer.SetPosition(0, transform.position);
-
-            lineRenderer.SetPosition(1, (hitVector.normalized * LINE_LENGTH) + transform.position);
-
-        }
-
-        if (Skills.isFlameState)
-        {
-            rb.velocity = rb.velocity.normalized * MAX_SPEED;
-        }
-
-
-        screenPosition = Camera.main.WorldToScreenPoint(transform.position);
-         
-        if (screenPosition.x < 0 )
-        {
-            rb.velocity = new Vector3(Mathf.Abs(rb.velocity.x), rb.velocity.y, rb.velocity.z);
-        }
-        if (screenPosition.x > Screen.width)
-        {
-            rb.velocity = new Vector3(-Mathf.Abs(rb.velocity.x), rb.velocity.y, rb.velocity.z);
-        }
-        lastFrameVelocity = rb.velocity;
     }
 
-
-
-
+    private void updateBallState()
+    {
+        if (rb.velocity.magnitude > MINIMUM_MAGNITUTE_FOR_AIR_STATE)
+        {
+            ballState = BallState.OnAir;
+        }
+        else
+        {
+            ballState = BallState.FirstShoot;
+        }
+    }
 
     private void OnMouseDown()
     {
