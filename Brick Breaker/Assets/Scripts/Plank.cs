@@ -90,6 +90,8 @@ public class Plank : MonoBehaviour
         save.saveScore(GameManager.score);
         isDead = true;
         movable = false;
+
+        Time.timeScale = 1;
     }
 
 

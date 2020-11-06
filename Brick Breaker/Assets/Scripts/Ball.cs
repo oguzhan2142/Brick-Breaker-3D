@@ -8,7 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
-
+    private const float MAX_MAGNITUTE = 200;
+    private const float SLOW_TIMESCALE_MODE = 0.3f;
     private const float MINIMUM_MAGNITUTE_FOR_AIR_STATE = 0.1F;
     private const int BRICK_LAYER = 10;
     public const float MAX_POWER = 3;
@@ -33,7 +34,7 @@ public class Ball : MonoBehaviour
     private float power = 0;
     private Vector3 hitVector;
     private float dirMagnitute;
-    private const float MAX_MAGNITUTE = 200;
+
     private Camera cam;
     private Renderer ren;
 
@@ -77,7 +78,11 @@ public class Ball : MonoBehaviour
             }
         }
 
-        
+
+        if (!Plank.isDead)
+        {
+            slowTimeWhenBallFalling();
+        }
 
 
         updateMaterial();
@@ -101,6 +106,32 @@ public class Ball : MonoBehaviour
 
         leftRightBoundCheck();
         lastFrameVelocity = rb.velocity;
+    }
+
+
+    private void slowTimeWhenBallFalling()
+    {
+        if (!Skills.isGroundState)
+        {
+            if (rb.velocity.y < 0)
+            {
+                if (transform.position.y < plank.transform.position.y)
+                {
+                    if (Time.timeScale == 1)
+                    {
+                        Time.timeScale = SLOW_TIMESCALE_MODE;
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (Time.timeScale == SLOW_TIMESCALE_MODE)
+            {
+                Time.timeScale = 1;
+            }
+
+        }
     }
 
     private void calculateHitVector()

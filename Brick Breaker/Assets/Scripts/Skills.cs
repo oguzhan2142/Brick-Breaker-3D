@@ -7,13 +7,9 @@ public class Skills : MonoBehaviour
 {
 
     private const float TIME_FOR_STONE_STAND = 2F;
-
-
     private const float STONESTAND_COOLDOWN = 10;
     private const float FLAMESTATE_COOLDOWN = 20;
     private const float GROUND_COOLDOWN = 40;
-
-
 
 
 
@@ -122,8 +118,8 @@ public class Skills : MonoBehaviour
         }
         else
         {
-            
-                avaible = true;
+
+            avaible = true;
         }
 
         if (!avaible)
