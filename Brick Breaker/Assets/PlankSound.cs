@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlankSound : MonoBehaviour
 {
 
+
+    [SerializeField] private Ball ball = null;
     private AudioSource source;
 
     [SerializeField] private AudioClip[] hitPlankSounds = null;
@@ -22,9 +24,11 @@ public class PlankSound : MonoBehaviour
 
 
 
-            source.clip = hitPlankSounds[Random.Range(0, hitPlankSounds.Length)];
-
-            source.Play();
+            if (ball.ballState != Ball.BallState.FirstShoot)
+            {
+                source.clip = hitPlankSounds[Random.Range(0, hitPlankSounds.Length)];
+                source.Play();
+            }
         }
     }
 

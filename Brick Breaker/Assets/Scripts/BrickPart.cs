@@ -9,7 +9,13 @@ public class BrickPart : MonoBehaviour
 
 
     [SerializeField] private GameObject cellPrefab = null;
+    [SerializeField] private AudioSource source = null;
+    [SerializeField] private AudioClip[] clips = null;
 
+    void Start()
+    {
+        source = GetComponent<AudioSource>();
+    }
 
 
     void Update()
@@ -33,12 +39,21 @@ public class BrickPart : MonoBehaviour
             GameObject cell = Instantiate(cellPrefab, transform.position, transform.rotation);
 
             float explotionForce = other.impulse.magnitude;
+
+
             Rigidbody[] rigidbodies = cell.GetComponentsInChildren<Rigidbody>();
             foreach (var item in rigidbodies)
             {
                 item.AddExplosionForce(explotionForce, transform.position, EXPLOTION_RADIUS);
             }
 
+        }
+
+
+        if (other.collider.tag == "Ball")
+        {
+            source.clip = clips[Random.Range(0, clips.Length)];
+            source.Play();
         }
     }
 

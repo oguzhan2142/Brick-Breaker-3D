@@ -384,16 +384,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: 08da76697b5264999abfb082f078d787, type: 3}
-  - {fileID: 8300000, guid: ca902db8666774bfc97247d0a549c371, type: 3}
   - {fileID: 8300000, guid: 3b66044281df34c4dbb46c62c7491584, type: 3}
   - {fileID: 8300000, guid: 22328ca1239b5432dbd5ea8b91896f20, type: 3}
   - {fileID: 8300000, guid: 3f6029b4fc3ac41b185af4449f37e09c, type: 3}
-  - {fileID: 8300000, guid: 0f7a01ef7dafa48e4864d5102eb4653e, type: 3}
   - {fileID: 8300000, guid: bdf8c9643e13b42a1af80756786bd6ee, type: 3}
-  - {fileID: 8300000, guid: 0d3f713ad15864f28ab1c5a2d09da468, type: 3}
   - {fileID: 8300000, guid: 24a74232bd7bb4c53a8b870006d7bf2a, type: 3}
   - {fileID: 8300000, guid: ea8ac582e79ec4d9c9234b8119a84769, type: 3}
-  - {fileID: 8300000, guid: 60dd6c0ca3c284b1f96c9b557da124ae, type: 3}
 --- !u!82 &3674716567594117864
 AudioSource:
   m_ObjectHideFlags: 0
