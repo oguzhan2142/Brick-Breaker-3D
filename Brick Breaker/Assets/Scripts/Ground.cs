@@ -23,7 +23,7 @@ public class Ground : MonoBehaviour
 
     void Update()
     {
-        if (Skills.isGroundState)
+        if (Skill.isGoldenGroundState)
         {
             if (!ren.material.Equals(skillMat))
             {
@@ -42,7 +42,7 @@ public class Ground : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.collider.tag == "Ball" && Skills.isGroundState)
+        if (other.collider.tag == "Ball" && Skill.isGoldenGroundState)
         {
             source.Play();
         }

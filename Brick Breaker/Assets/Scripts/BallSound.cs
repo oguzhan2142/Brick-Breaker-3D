@@ -18,7 +18,7 @@ public class BallSound : MonoBehaviour
 
     void Update()
     {
-        if (Skills.isFlameState)
+        if (Skill.isFireballState)
         {
             
             if (!source.isPlaying)

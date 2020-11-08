@@ -66,7 +66,7 @@ public class Plank : MonoBehaviour
         if (other.collider.tag == "BrickPart")
         {
 
-            if (Skills.isStoneStand || isDead)
+            if (Skill.isGoldenPlankState || isDead)
                 return;
 
             bloodiness += DELTA_BLOODINESS;

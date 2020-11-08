@@ -99,7 +99,7 @@ public class Ball : MonoBehaviour
             drawLine();
         }
 
-        if (Skills.isFlameState)
+        if (Skill.isFireballState)
         {
             rb.velocity = rb.velocity.normalized * MAX_SPEED;
         }
@@ -111,7 +111,7 @@ public class Ball : MonoBehaviour
 
     private void slowTimeWhenBallFalling()
     {
-        if (!Skills.isGroundState)
+        if (!Skill.isGoldenGroundState)
         {
             if (rb.velocity.y < 0)
             {
@@ -198,7 +198,7 @@ public class Ball : MonoBehaviour
             {
                 rb.velocity = new Vector3(rb.velocity.x, -Mathf.Abs(rb.velocity.y), rb.velocity.z);
                 materialState = MaterialState.normal;
-                Skills.isFlameState = false;
+                Skill.isFireballState = false;
             }
         }
         else
@@ -247,10 +247,10 @@ public class Ball : MonoBehaviour
         if (other.collider.tag == "Ground")
         {
 
-            if (Skills.isGroundState)
+            if (Skill.isGoldenGroundState)
             {
                 reflect(other.contacts[0].normal);
-                Skills.isGroundState = false;
+                Skill.isGoldenGroundState = false;
             }
             else
             {
@@ -267,7 +267,7 @@ public class Ball : MonoBehaviour
             other.collider.gameObject.layer = BRICK_LAYER;
             other.collider.attachedRigidbody.isKinematic = false;
 
-            if (Skills.isFlameState)
+            if (Skill.isFireballState)
             {
                 rb.velocity = lastFrameVelocity;
             }

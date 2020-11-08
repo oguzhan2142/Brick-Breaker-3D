@@ -23,7 +23,7 @@ public class PlankSound : MonoBehaviour
 
         if (other.collider.tag == "Ball")
         {
-            if (Skills.isStoneStand)
+            if (Skill.isGoldenPlankState)
             {
                 source.clip = hitMetalSound;
                 source.Play();
