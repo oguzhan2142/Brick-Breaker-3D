@@ -13,6 +13,9 @@ public class SkillManager : MonoBehaviour
     [SerializeField] private GameObject fireballButton = null;
 
 
+
+    [SerializeField] private GameObject skillSelectPanel = null;
+
     void Start()
     {
         Instantiate(fireballButton, skillsTransform, false);
@@ -23,24 +26,20 @@ public class SkillManager : MonoBehaviour
 
 
 
-   
 
-    // public void flameState()
-    // {
-    //     if (flameStandAvaible)
-    //     {
-    //         ball.materialState = Ball.MaterialState.flame;
-    //         isFlameState = true;
-    //         flameRemainingCooldown = FLAMESTATE_COOLDOWN;
-    //     }
-    // }
+    public void skillSelectButton()
+    {
+        if (skillSelectPanel.activeInHierarchy)
+        {
+            skillSelectPanel.SetActive(false);
+            Time.timeScale = 1;
 
-    // public void ground()
-    // {
-    //     if (groundStandAvaible)
-    //     {
-    //         groundRemainingCooldown = GROUND_COOLDOWN;
-    //         isGroundState = true;
-    //     }
-    // }
+
+        }
+        else
+        {
+            skillSelectPanel.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
 }
