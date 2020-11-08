@@ -17,14 +17,13 @@ public class GameManager : MonoBehaviour
     public static int score = 0;
     public static int level = 1;
 
+    public TextMeshProUGUI gameOverScoreText = null;
+
     [SerializeField] private GameObject skillExplanationPanel = null;
     [SerializeField] private GameObject pauseMenu = null;
     [SerializeField] private GameObject gameOverMenu = null;
-
     [SerializeField] private GameObject blockPrefab = null;
-
     [SerializeField] private Transform startingTransform = null;
-    public TextMeshProUGUI gameOverScoreText = null;
     [SerializeField] private Text levelText = null;
 
 

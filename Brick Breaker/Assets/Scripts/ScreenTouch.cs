@@ -30,15 +30,12 @@ public class ScreenTouch : MonoBehaviour
     void Update()
     {
 
-
-        float plankY = Camera.main.WorldToScreenPoint(plank.transform.position).y;
-
         if (Input.GetMouseButtonDown(0))
         {
             first = Input.mousePosition;
             plankScreen = Camera.main.WorldToScreenPoint(plank.transform.position);
             // Sag sol kaydirma
-            if (first.y < plankY && plank.movable)
+            if (plank.movable)
             {
                 offset = plank.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, plankScreen.z));
             }
@@ -51,7 +48,7 @@ public class ScreenTouch : MonoBehaviour
             Vector3 last = Input.mousePosition;
 
             // sag sol kaydirma
-            if (last.y < plankY && plank.movable)
+            if (plank.movable)
             {
 
                 Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, plankScreen.z);
@@ -85,7 +82,7 @@ public class ScreenTouch : MonoBehaviour
 
                 plank.transform.position = new Vector3(curPosition.x, plank.transform.position.y, plank.transform.position.z);
 
-                
+
 
 
             }

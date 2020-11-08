@@ -91,7 +91,7 @@ public class Ball : MonoBehaviour
 
         speedCheck();
 
-        uppperBoundCheck();
+        upperBoundCheck();
 
         if (ballState == Ball.BallState.FirstShoot && mouseDown)
         {
@@ -104,7 +104,7 @@ public class Ball : MonoBehaviour
             rb.velocity = rb.velocity.normalized * MAX_SPEED;
         }
 
-        leftRightBoundCheck();
+        horizontalBoundsCheck();
         lastFrameVelocity = rb.velocity;
     }
 
@@ -167,7 +167,7 @@ public class Ball : MonoBehaviour
         }
     }
 
-    private void leftRightBoundCheck()
+    private void horizontalBoundsCheck()
     {
         screenPosition = Camera.main.WorldToScreenPoint(transform.position);
 
@@ -189,7 +189,7 @@ public class Ball : MonoBehaviour
         }
     }
 
-    private void uppperBoundCheck()
+    private void upperBoundCheck()
     {
         if (currentBlock)
         {
@@ -246,15 +246,9 @@ public class Ball : MonoBehaviour
         }
         if (other.collider.tag == "Ground")
         {
-            // plank.transform.position = new Vector3(0, plank.transform.position.y, plank.transform.position.z);
-            // transform.position = new Vector3(plank.transform.position.x, plank.transform.position.y, plank.transform.position.z);
-            // rb.velocity = Vector3.zero;
-            // ballState = BallState.FirstShoot;
-
 
             if (Skills.isGroundState)
             {
-
                 reflect(other.contacts[0].normal);
                 Skills.isGroundState = false;
             }
@@ -264,10 +258,7 @@ public class Ball : MonoBehaviour
                 plank.die();
             }
 
-
-
         }
-
 
 
         if (other.collider.tag == "BrickPart")
@@ -284,12 +275,6 @@ public class Ball : MonoBehaviour
             {
                 reflect(other.contacts[0].normal);
             }
-        }
-
-
-        if (other.collider.tag == "SideWall")
-        {
-            reflect(other.contacts[0].normal);
         }
 
         if (other.collider.tag == "Plank" && ballState != BallState.FirstShoot)
