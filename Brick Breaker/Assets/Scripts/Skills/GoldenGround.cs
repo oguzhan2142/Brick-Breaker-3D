@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GoldenGround : Skill
 {
-    public const float GOLDENGROUND_COOLDOWN = 10;
+
     private const float TIME_FOR_GOLDEN_GROUND = 2F;
 
     private Renderer groundRenderer = null;
@@ -18,11 +18,16 @@ public class GoldenGround : Skill
 
     private float standTimer = 0;
 
+    protected override void Awake()
+    {
+        base.Awake();
 
+    }
 
     protected override void Start()
     {
         base.Start();
+    
         groundRenderer = GameObject.FindWithTag("Ground").GetComponent<Renderer>();
         GetComponent<Button>().onClick.AddListener(use);
     }
@@ -61,7 +66,7 @@ public class GoldenGround : Skill
         {
             materialState = MaterialState.stone;
             Skill.isGoldenGroundState = true;
-            remainingCooldown = GOLDENGROUND_COOLDOWN;
+            remainingCooldown = cooldown;
         }
     }
 }

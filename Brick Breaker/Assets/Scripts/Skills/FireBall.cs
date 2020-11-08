@@ -5,16 +5,17 @@ using UnityEngine.UI;
 
 public class FireBall : Skill
 {
-    public const float FIREBALL_COOLDOWN = 20;
 
     private Transform fireTransform = null;
+
 
 
     protected override void Start()
     {
         base.Start();
-        fireTransform = ball.transform.Find("Fire");
 
+
+        fireTransform = ball.transform.Find("Fire");
         GetComponent<Button>().onClick.AddListener(useSkill);
     }
 
@@ -46,7 +47,7 @@ public class FireBall : Skill
         {
             ball.materialState = Ball.MaterialState.flame;
             Skill.isFireballState = true;
-            remainingCooldown = FIREBALL_COOLDOWN;
+            remainingCooldown = cooldown;
         }
     }
 }

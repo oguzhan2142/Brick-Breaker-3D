@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Skill : MonoBehaviour
+
+public abstract class Skill : MonoBehaviour
 {
 
 
@@ -16,9 +17,17 @@ public class Skill : MonoBehaviour
     [SerializeField] private GameObject statePanel = null;
     [SerializeField] private Text cooldownText = null;
     private Button skillButton = null;
-
     protected float remainingCooldown = 0;
     public bool avaibleToUse = true;
+
+    public float cooldown;
+    public string explanation;
+
+
+    protected virtual void Awake()
+    {
+
+    }
 
     protected virtual void Start()
     {

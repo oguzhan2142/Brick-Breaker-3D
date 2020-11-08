@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class GoldenPlank : Skill
 {
-    public const float GOLDENPLANK_COOLDOWN = 10;
     private const float TIME_FOR_GOLDEN_PLANK = 2F;
 
     [SerializeField] private Material normalMaterial = null;
@@ -22,6 +21,7 @@ public class GoldenPlank : Skill
     protected override void Start()
     {
         base.Start();
+       
         plankRenderer = GameObject.FindWithTag("Plank").GetComponent<Renderer>();
         GetComponent<Button>().onClick.AddListener(use);
     }
@@ -60,7 +60,7 @@ public class GoldenPlank : Skill
         {
             materialState = MaterialState.stone;
             Skill.isGoldenPlankState = true;
-            remainingCooldown = GOLDENPLANK_COOLDOWN;
+            remainingCooldown = cooldown;
         }
     }
 }

@@ -26,6 +26,6 @@ public class SkillButton : MonoBehaviour
     {
         skillSelectPanel.disableAllSelectedImages();
         selectedImage.SetActive(true);
-
+        skillSelectPanel.selectedSkill = this.skill;
     }
 }

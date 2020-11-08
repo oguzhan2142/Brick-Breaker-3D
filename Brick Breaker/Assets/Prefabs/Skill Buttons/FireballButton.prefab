@@ -299,3 +299,6 @@ MonoBehaviour:
   statePanel: {fileID: 1938632685979826836}
   cooldownText: {fileID: 1938632685652988712}
   avaibleToUse: 1
+  cooldown: 20
+  explanation: "Topu aniden maksimum h\u0131z\u0131na ula\u015Ft\u0131rarak topu
+    g\xFC\xE7lendirir"

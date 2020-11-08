@@ -146,9 +146,10 @@ MonoBehaviour:
   statePanel: {fileID: 2625063327991106213}
   cooldownText: {fileID: 2625063327789895772}
   avaibleToUse: 1
+  cooldown: 10
+  explanation: "Tahtay\u0131 2 saniye boyunca hasar al\u0131namaz duruma getirir."
   normalMaterial: {fileID: 2100000, guid: 47db442db4ba54d8da6a20d6cf91b6d3, type: 2}
   goldMaterial: {fileID: 2100000, guid: c47ae20bdb236435aa8b2522f62bb4b4, type: 2}
-  plankRenderer: {fileID: 0}
 --- !u!1 &2625063327789895774
 GameObject:
   m_ObjectHideFlags: 0
