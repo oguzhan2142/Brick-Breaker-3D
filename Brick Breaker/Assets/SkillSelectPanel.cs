@@ -28,6 +28,22 @@ public class SkillSelectPanel : MonoBehaviour
         cooldownInfoText.text = selectedSkill.cooldown.ToString();
     }
 
+
+    public void addSkill()
+    {
+        if (selectedSkillsPanel.transform.childCount < 3)
+        {
+
+            GameObject btn = Instantiate(selectedSkillButtonPrefab, selectedSkillsPanel.transform, false);
+            btn.GetComponent<SelectedSkillButton>().skill = selectedSkill;
+            btn.GetComponent<Image>().sprite = selectedSkill.sprite;
+            btn.GetComponent<Button>().onClick.AddListener(() =>
+            {
+                Destroy(btn.gameObject);
+            });
+        }
+    }
+
     public void disableAllSelectedImages()
     {
         foreach (Transform btn in allSkillsPanel)

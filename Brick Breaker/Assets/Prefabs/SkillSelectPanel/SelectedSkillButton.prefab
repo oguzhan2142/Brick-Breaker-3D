@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8768801993515590691}
   - component: {fileID: 3922154426038073216}
   - component: {fileID: 8588060034495284003}
+  - component: {fileID: 3553165484186004342}
   m_Layer: 5
   m_Name: SelectedSkillButton
   m_TagString: Untagged
@@ -119,6 +120,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3553165484186004342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805175392487111626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f91631680d5a4585b97509f6bf3435b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6137624127539970098
 GameObject:
   m_ObjectHideFlags: 0

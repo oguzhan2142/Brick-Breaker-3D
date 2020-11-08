@@ -22,7 +22,7 @@ public abstract class Skill : MonoBehaviour
 
     public float cooldown;
     public string explanation;
-
+    public Sprite sprite;
 
     protected virtual void Awake()
     {

@@ -24,8 +24,7 @@ public class SkillManager : MonoBehaviour
     }
 
 
-
-
+    
 
     public void skillSelectButton()
     {
