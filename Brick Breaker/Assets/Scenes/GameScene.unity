@@ -580,7 +580,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 128052185763842f2a316d8c4940833a, type: 3}
   - {fileID: 8300000, guid: 441785a37a5c9409db9d2b427ad3fe26, type: 3}
   - {fileID: 8300000, guid: 8aacdd7a3b3bd41b687a6959db2b47da, type: 3}
-  hitMetalSound: {fileID: 0}
+  hitMetalSound: {fileID: 8300000, guid: 9bef9d3f12728445287b5c7608c70eee, type: 3}
 --- !u!1 &141873263
 GameObject:
   m_ObjectHideFlags: 0

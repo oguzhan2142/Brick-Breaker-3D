@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     {
         levelText.text = "Level " + level.ToString();
         levelText.GetComponent<Animation>().Play();
+        Time.timeScale = 1;
     }
 
 
