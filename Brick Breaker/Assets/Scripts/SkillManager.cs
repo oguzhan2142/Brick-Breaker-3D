@@ -18,7 +18,7 @@ public class SkillManager : MonoBehaviour
     void Start()
     {
         Instantiate(skillButtonPrefabs[0], skillsTransform, false);
-        Instantiate(skillButtonPrefabs[1], skillsTransform, false);
+        Instantiate(skillButtonPrefabs[3], skillsTransform, false);
     }
 
 

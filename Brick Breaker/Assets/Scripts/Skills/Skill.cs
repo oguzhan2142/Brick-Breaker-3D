@@ -12,6 +12,7 @@ public abstract class Skill : MonoBehaviour
     public static bool isFireballState = false;
     public static bool isGoldenGroundState = false;
 
+
     protected Ball ball = null;
 
     [SerializeField] private GameObject statePanel = null;
@@ -31,6 +32,7 @@ public abstract class Skill : MonoBehaviour
 
     protected virtual void Start()
     {
+        GetComponent<Image>().sprite = sprite;
         skillButton = GetComponent<Button>();
         ball = GameObject.FindGameObjectWithTag("Ball").GetComponent<Ball>();
         statePanel.SetActive(false);

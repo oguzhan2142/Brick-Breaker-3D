@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     public static float BLOCK_SPEED = 0.05F;
 
+    public Transform startingTransform = null;
     public static int score = 0;
     public static int level = 1;
 
@@ -23,7 +24,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu = null;
     [SerializeField] private GameObject gameOverMenu = null;
     [SerializeField] private GameObject blockPrefab = null;
-    [SerializeField] private Transform startingTransform = null;
     [SerializeField] private Text levelText = null;
 
 
