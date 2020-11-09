@@ -7,7 +7,7 @@ using TMPro;
 public class SkillSelectPanel : MonoBehaviour
 {
 
-    [SerializeField] private GameObject selectedSkillsPanel = null;
+    [SerializeField] private Transform pendingSkillsPanel = null;
     [SerializeField] private GameObject selectedSkillButtonPrefab = null;
     [SerializeField] private Transform allSkillsPanel = null;
 
@@ -15,6 +15,8 @@ public class SkillSelectPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI explanationText = null;
 
     [HideInInspector] public Skill selectedSkill = null;
+    [SerializeField] private Transform currentSkillsContainer = null;
+    
 
     void Start()
     {
@@ -31,15 +33,21 @@ public class SkillSelectPanel : MonoBehaviour
         {
             allSkillsPanel.GetChild(0).GetComponent<SkillButton>().onClick();
         }
+
+
         explanationText.text = selectedSkill.explanation;
         cooldownInfoText.text = selectedSkill.cooldown.ToString();
     }
+
+   
+
+   
 
 
     public void addSkill()
     {
 
-        foreach (Transform skill in selectedSkillsPanel.transform)
+        foreach (Transform skill in pendingSkillsPanel.transform)
         {
 
             if (skill.GetComponent<SelectedSkillButton>().skill.GetType().Equals(selectedSkill.GetType()))
@@ -49,10 +57,10 @@ public class SkillSelectPanel : MonoBehaviour
         }
 
 
-        if (selectedSkillsPanel.transform.childCount < 2)
+        if (pendingSkillsPanel.transform.childCount < 2)
         {
 
-            GameObject btn = Instantiate(selectedSkillButtonPrefab, selectedSkillsPanel.transform, false);
+            GameObject btn = Instantiate(selectedSkillButtonPrefab, pendingSkillsPanel.transform, false);
             btn.GetComponent<SelectedSkillButton>().skill = selectedSkill;
             btn.GetComponent<Image>().sprite = selectedSkill.sprite;
             btn.GetComponent<Button>().onClick.AddListener(() =>

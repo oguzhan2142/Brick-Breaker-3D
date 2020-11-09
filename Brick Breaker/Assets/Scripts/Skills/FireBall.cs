@@ -30,7 +30,6 @@ public class FireBall : Skill
         else
         {
             ball.materialState = Ball.MaterialState.normal;
-
         }
         if (ball.rb.velocity != Vector3.zero)
         {

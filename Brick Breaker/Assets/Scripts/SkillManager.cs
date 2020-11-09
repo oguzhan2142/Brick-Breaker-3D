@@ -14,10 +14,11 @@ public class SkillManager : MonoBehaviour
 
     [SerializeField] private GameObject skillSelectPanel = null;
     [SerializeField] private Transform pendingSkillsContainer = null;
-
+    [SerializeField] private GameObject pendingBackground = null;
+    
     void Start()
     {
-        
+
     }
 
 
@@ -27,7 +28,44 @@ public class SkillManager : MonoBehaviour
         {
             updatePendingSkills();
         }
+
+        if (areTherePendingSkills())
+        {
+            pendingBackground.SetActive(false);
+        }
+        else
+        {
+            pendingBackground.SetActive(true);
+        }
     }
+    private bool areTherePendingSkills()
+    {
+
+        foreach (Transform pending in pendingSkillsContainer)
+        {
+
+            if (pendingSkillsContainer.childCount == 0)
+            {
+                return false;
+            }
+
+            bool contains = false;
+            foreach (Transform current in skillsTransform)
+            {
+                if (pending.GetComponent<SelectedSkillButton>().skill.GetType().Equals(current.GetComponent<Skill>().GetType()))
+                {
+                    contains = true;
+                }
+            }
+            if (!contains)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 
     public void updatePendingSkills()
     {
@@ -52,11 +90,7 @@ public class SkillManager : MonoBehaviour
                     break;
                 }
             }
-
-
         }
-
-
     }
 
 
