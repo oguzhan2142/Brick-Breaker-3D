@@ -5,8 +5,8 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
 
-   
-    [SerializeField]private Transform bricksTransform = null;
+
+    [SerializeField] private Transform bricksTransform = null;
 
     public bool movable = false;
     public Transform topOfBlocksTransform = null;
@@ -37,7 +37,7 @@ public class Block : MonoBehaviour
 
         if (bricksTransform.childCount == 0)
         {
-            gameManager.instantiateBlock();   
+            gameManager.instantiateBlock();
             Destroy(gameObject);
         }
 

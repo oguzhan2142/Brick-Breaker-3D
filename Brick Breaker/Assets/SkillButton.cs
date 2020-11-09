@@ -24,6 +24,10 @@ public class SkillButton : MonoBehaviour
 
     public void onClick()
     {
+        if (skillSelectPanel == null)
+        {
+            skillSelectPanel = GameObject.FindObjectOfType<SkillSelectPanel>();
+        }
         skillSelectPanel.disableAllSelectedImages();
         selectedImage.SetActive(true);
         skillSelectPanel.selectedSkill = this.skill;

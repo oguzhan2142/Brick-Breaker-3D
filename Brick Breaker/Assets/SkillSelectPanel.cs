@@ -24,6 +24,13 @@ public class SkillSelectPanel : MonoBehaviour
 
     private void Update()
     {
+        if (!gameObject.activeInHierarchy)
+            return;
+
+        if (selectedSkill == null)
+        {
+            allSkillsPanel.GetChild(0).GetComponent<SkillButton>().onClick();
+        }
         explanationText.text = selectedSkill.explanation;
         cooldownInfoText.text = selectedSkill.cooldown.ToString();
     }
@@ -31,7 +38,18 @@ public class SkillSelectPanel : MonoBehaviour
 
     public void addSkill()
     {
-        if (selectedSkillsPanel.transform.childCount < 3)
+
+        foreach (Transform skill in selectedSkillsPanel.transform)
+        {
+
+            if (skill.GetComponent<SelectedSkillButton>().skill.GetType().Equals(selectedSkill.GetType()))
+            {
+                return;
+            }
+        }
+
+
+        if (selectedSkillsPanel.transform.childCount < 2)
         {
 
             GameObject btn = Instantiate(selectedSkillButtonPrefab, selectedSkillsPanel.transform, false);

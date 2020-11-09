@@ -1207,7 +1207,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 174181662}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1813939751}
+        m_MethodName: addSkill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &174181662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2644,7 +2655,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -323.19}
+  m_AnchoredPosition: {x: 0, y: -323.18945}
   m_SizeDelta: {x: 0, y: -1040.9435}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &299491192
@@ -5255,6 +5266,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillsTransform: {fileID: 2055217396}
+  skillButtonPrefabs:
+  - {fileID: 1938632687760463861, guid: 65f1686b975864f1ab9172d059bdd95c, type: 3}
+  - {fileID: 8488224001608089727, guid: 028650ea4936e4c668ef979d7bd36c5e, type: 3}
+  - {fileID: 2625063326838395123, guid: 330b0733c4c8a42228e60a162acb51a4, type: 3}
   goldenGroundButton: {fileID: 8488224001608089727, guid: 028650ea4936e4c668ef979d7bd36c5e,
     type: 3}
   goldenPlankButton: {fileID: 2625063326838395123, guid: 330b0733c4c8a42228e60a162acb51a4,
@@ -5262,6 +5277,7 @@ MonoBehaviour:
   fireballButton: {fileID: 1938632687760463861, guid: 65f1686b975864f1ab9172d059bdd95c,
     type: 3}
   skillSelectPanel: {fileID: 1813939747}
+  pendingSkillsContainer: {fileID: 278033474}
 --- !u!4 &886200983
 Transform:
   m_ObjectHideFlags: 0

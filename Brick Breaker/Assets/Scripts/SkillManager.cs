@@ -8,23 +8,57 @@ public class SkillManager : MonoBehaviour
 
     [SerializeField] private Transform skillsTransform = null;
 
-    [SerializeField] private GameObject goldenGroundButton = null;
-    [SerializeField] private GameObject goldenPlankButton = null;
-    [SerializeField] private GameObject fireballButton = null;
 
+    [SerializeField] private GameObject[] skillButtonPrefabs = null;
 
 
     [SerializeField] private GameObject skillSelectPanel = null;
+    [SerializeField] private Transform pendingSkillsContainer = null;
 
     void Start()
     {
-        Instantiate(fireballButton, skillsTransform, false);
-        Instantiate(goldenGroundButton, skillsTransform, false);
-        Instantiate(goldenPlankButton, skillsTransform, false);
+        
     }
 
 
-    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            updatePendingSkills();
+        }
+    }
+
+    public void updatePendingSkills()
+    {
+
+        //   Mevcut skilleri panelden silelim-skills
+
+        foreach (Transform item in skillsTransform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        // Bekleyen degisiklikleri ekleyelim-pendingSkillsContainer
+
+        foreach (Transform selectedSkill in pendingSkillsContainer)
+        {
+
+            foreach (GameObject skillBtnPrefab in skillButtonPrefabs)
+            {
+                if (selectedSkill.GetComponent<SelectedSkillButton>().skill.GetType().Equals(skillBtnPrefab.GetComponent<Skill>().GetType()))
+                {
+                    Instantiate(skillBtnPrefab, skillsTransform, false);
+                    break;
+                }
+            }
+
+
+        }
+
+
+    }
+
 
     public void skillSelectButton()
     {
