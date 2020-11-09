@@ -18,8 +18,6 @@ public class SkillSelectPanel : MonoBehaviour
     [HideInInspector] public Skill selectedSkill = null;
 
 
-
-
     void Start()
     {
         allSkillsPanel.GetChild(0).GetComponent<SkillButton>().onClick();
@@ -29,17 +27,10 @@ public class SkillSelectPanel : MonoBehaviour
     void OnEnable()
     {
 
-
         destroyPendingSkills();
         createPendingSkills();
 
     }
-
-
-
-
-
-
 
     private void Update()
     {

@@ -18,17 +18,13 @@ public class SkillManager : MonoBehaviour
 
     void Start()
     {
-
+        Instantiate(skillButtonPrefabs[0], skillsTransform, false);
+        Instantiate(skillButtonPrefabs[1], skillsTransform, false);
     }
 
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            syncCurrentSkillsWithPending();
-        }
-
         if (areTherePendingSkills())
         {
             pendingBackground.SetActive(false);
