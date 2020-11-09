@@ -15,7 +15,7 @@ public class SkillManager : MonoBehaviour
     [SerializeField] private GameObject skillSelectPanel = null;
     [SerializeField] private Transform pendingSkillsContainer = null;
     [SerializeField] private GameObject pendingBackground = null;
-    
+
     void Start()
     {
 
@@ -26,7 +26,7 @@ public class SkillManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            updatePendingSkills();
+            syncCurrentSkillsWithPending();
         }
 
         if (areTherePendingSkills())
@@ -67,18 +67,16 @@ public class SkillManager : MonoBehaviour
     }
 
 
-    public void updatePendingSkills()
+    public void syncCurrentSkillsWithPending()
     {
 
         //   Mevcut skilleri panelden silelim-skills
-
         foreach (Transform item in skillsTransform)
         {
             Destroy(item.gameObject);
         }
 
         // Bekleyen degisiklikleri ekleyelim-pendingSkillsContainer
-
         foreach (Transform selectedSkill in pendingSkillsContainer)
         {
 

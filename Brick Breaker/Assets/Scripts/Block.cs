@@ -42,7 +42,7 @@ public class Block : MonoBehaviour
         {
             
             gameManager.instantiateBlock();
-            skillManager.updatePendingSkills();
+            skillManager.syncCurrentSkillsWithPending();
             Destroy(gameObject);
         }
 

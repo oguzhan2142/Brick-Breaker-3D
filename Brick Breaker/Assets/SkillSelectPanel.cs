@@ -13,15 +13,32 @@ public class SkillSelectPanel : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI cooldownInfoText = null;
     [SerializeField] private TextMeshProUGUI explanationText = null;
+    [SerializeField] private Transform currentSkills = null;
 
     [HideInInspector] public Skill selectedSkill = null;
-    [SerializeField] private Transform currentSkillsContainer = null;
-    
+
+
+
 
     void Start()
     {
         allSkillsPanel.GetChild(0).GetComponent<SkillButton>().onClick();
     }
+
+
+    void OnEnable()
+    {
+
+
+        destroyPendingSkills();
+        createPendingSkills();
+
+    }
+
+
+
+
+
 
 
     private void Update()
@@ -39,9 +56,26 @@ public class SkillSelectPanel : MonoBehaviour
         cooldownInfoText.text = selectedSkill.cooldown.ToString();
     }
 
-   
 
-   
+    private void createPendingSkills()
+    {
+
+        foreach (Transform currentSkill in currentSkills)
+        {
+            instantiateSelectedSkillBtn(currentSkill.GetComponent<Skill>());
+        }
+
+    }
+
+
+
+    private void destroyPendingSkills()
+    {
+        foreach (Transform item in pendingSkillsPanel)
+        {
+            Destroy(item.gameObject);
+        }
+    }
 
 
     public void addSkill()
@@ -59,15 +93,19 @@ public class SkillSelectPanel : MonoBehaviour
 
         if (pendingSkillsPanel.transform.childCount < 2)
         {
-
-            GameObject btn = Instantiate(selectedSkillButtonPrefab, pendingSkillsPanel.transform, false);
-            btn.GetComponent<SelectedSkillButton>().skill = selectedSkill;
-            btn.GetComponent<Image>().sprite = selectedSkill.sprite;
-            btn.GetComponent<Button>().onClick.AddListener(() =>
-            {
-                Destroy(btn.gameObject);
-            });
+            instantiateSelectedSkillBtn(selectedSkill);
         }
+    }
+
+    private void instantiateSelectedSkillBtn(Skill skill)
+    {
+        GameObject btn = Instantiate(selectedSkillButtonPrefab, pendingSkillsPanel.transform, false);
+        btn.GetComponent<SelectedSkillButton>().skill = skill;
+        btn.GetComponent<Image>().sprite = skill.sprite;
+        btn.GetComponent<Button>().onClick.AddListener(() =>
+        {
+            Destroy(btn.gameObject);
+        });
     }
 
     public void disableAllSelectedImages()
