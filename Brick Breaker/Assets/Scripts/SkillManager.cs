@@ -6,12 +6,11 @@ using UnityEngine.UI;
 public class SkillManager : MonoBehaviour
 {
 
+    public static bool CHANGES_PENDING = false;
+
+
     [SerializeField] private Transform skillsTransform = null;
-
-
     [SerializeField] private GameObject[] skillButtonPrefabs = null;
-
-
     [SerializeField] private GameObject skillSelectPanel = null;
     [SerializeField] private Transform pendingSkillsContainer = null;
     [SerializeField] private GameObject pendingBackground = null;
@@ -85,6 +84,9 @@ public class SkillManager : MonoBehaviour
                 }
             }
         }
+
+        // Degisiklikler bitti
+        CHANGES_PENDING = false;
     }
 
 

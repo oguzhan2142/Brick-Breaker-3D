@@ -26,10 +26,11 @@ public class SkillSelectPanel : MonoBehaviour
 
     void OnEnable()
     {
-
-        destroyPendingSkills();
-        createPendingSkills();
-
+        if (!SkillManager.CHANGES_PENDING)
+        {
+            destroyPendingSkills();
+            createPendingSkills();
+        }
     }
 
     private void Update()
@@ -85,6 +86,7 @@ public class SkillSelectPanel : MonoBehaviour
         if (pendingSkillsPanel.transform.childCount < 2)
         {
             instantiateSelectedSkillBtn(selectedSkill);
+            SkillManager.CHANGES_PENDING = true;
         }
     }
 
@@ -96,6 +98,7 @@ public class SkillSelectPanel : MonoBehaviour
         btn.GetComponent<Button>().onClick.AddListener(() =>
         {
             Destroy(btn.gameObject);
+            SkillManager.CHANGES_PENDING = true;
         });
     }
 
