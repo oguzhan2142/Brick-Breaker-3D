@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI gameOverScoreText = null;
 
-    [SerializeField] private GameObject skillExplanationPanel = null;
+
     [SerializeField] private GameObject pauseMenu = null;
     [SerializeField] private GameObject gameOverMenu = null;
     [SerializeField] private GameObject blockPrefab = null;
@@ -38,34 +38,7 @@ public class GameManager : MonoBehaviour
 
 
 
-    void Update()
-    {
-        if (skillExplanationPanel.activeInHierarchy)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Time.timeScale = 1;
-                skillExplanationPanel.SetActive(false);
-            }
-        }
-    }
-
-
-    public void openSkillInfos()
-    {
-
-        if (skillExplanationPanel.activeInHierarchy)
-        {
-            skillExplanationPanel.SetActive(false);
-            Time.timeScale = 1;
-
-        }
-        else
-        {
-            skillExplanationPanel.SetActive(true);
-            Time.timeScale = 0;
-        }
-    }
+   
 
     public void instantiateBlock()
     {
