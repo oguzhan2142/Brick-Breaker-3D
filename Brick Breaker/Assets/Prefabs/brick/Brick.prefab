@@ -501,6 +501,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7402fd4d6333b49f49174231dfb63720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinPrefabs:
+  - {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
+  - {fileID: 1401821474702656, guid: 40622103d618b1e43b3c9ea67ff0a1e3, type: 3}
+  - {fileID: 1708572530373918, guid: 6cf803f17924190419a094e8c931bfef, type: 3}
 --- !u!1 &6714301321309412235
 GameObject:
   m_ObjectHideFlags: 0

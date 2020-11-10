@@ -10,6 +10,7 @@ TagManager:
   - BrickPart
   - SideWall
   - Block
+  - Coin
   layers:
   - Default
   - TransparentFX

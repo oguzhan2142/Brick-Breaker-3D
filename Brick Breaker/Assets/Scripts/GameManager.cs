@@ -19,13 +19,13 @@ public class GameManager : MonoBehaviour
     public static int level = 1;
 
     public TextMeshProUGUI gameOverScoreText = null;
-
+    public static int budged = 0;
 
     [SerializeField] private GameObject pauseMenu = null;
     [SerializeField] private GameObject gameOverMenu = null;
     [SerializeField] private GameObject blockPrefab = null;
     [SerializeField] private Text levelText = null;
-
+    [SerializeField] private TextMeshProUGUI budgedText = null;
 
 
 
@@ -37,8 +37,11 @@ public class GameManager : MonoBehaviour
     }
 
 
+    void Update()
+    {
+        budgedText.text = budged.ToString();
+    }
 
-   
 
     public void instantiateBlock()
     {
