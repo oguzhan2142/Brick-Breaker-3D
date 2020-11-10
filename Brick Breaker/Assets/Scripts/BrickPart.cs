@@ -35,17 +35,18 @@ public class BrickPart : MonoBehaviour
         if (other.collider.tag == "Ground" || other.collider.tag == "Plank" || other.collider.tag == "SideWall")
         {
 
-            Destroy(gameObject);
             GameObject cell = Instantiate(cellPrefab, transform.position, transform.rotation);
 
             float explotionForce = other.impulse.magnitude;
 
-
             Rigidbody[] rigidbodies = cell.GetComponentsInChildren<Rigidbody>();
+            print(rigidbodies.Length);
+            print("force " + explotionForce);
             foreach (var item in rigidbodies)
             {
                 item.AddExplosionForce(explotionForce, transform.position, EXPLOTION_RADIUS);
             }
+            Destroy(gameObject);
 
         }
 

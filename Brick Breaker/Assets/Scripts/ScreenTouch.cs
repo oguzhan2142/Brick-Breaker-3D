@@ -23,7 +23,7 @@ public class ScreenTouch : MonoBehaviour
     {
         Vector3[] corners = new Vector3[4];
         skillsPanel.GetComponent<RectTransform>().GetWorldCorners(corners);
-        print(corners[3]);
+
         controlBoundY = corners[3].y;
     }
 
