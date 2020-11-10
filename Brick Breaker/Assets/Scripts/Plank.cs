@@ -92,6 +92,10 @@ public class Plank : MonoBehaviour
         movable = false;
 
         Time.timeScale = 1;
+
+        Skill.isFireballState = false;
+        Skill.isGoldenGroundState = false;
+        Skill.isGoldenPlankState = false;
     }
 
 

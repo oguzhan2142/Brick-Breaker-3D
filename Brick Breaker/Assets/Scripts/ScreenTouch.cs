@@ -14,11 +14,29 @@ public class ScreenTouch : MonoBehaviour
 
     private float speed = 8f;
 
+
+    [SerializeField] private Transform skillsPanel = null;
+
+    public float controlBoundY;
+
+    void Start()
+    {
+        Vector3[] corners = new Vector3[4];
+        skillsPanel.GetComponent<RectTransform>().GetWorldCorners(corners);
+        print(corners[3]);
+        controlBoundY = corners[3].y;
+    }
+
+
     void Update()
     {
 
         if (Input.GetMouseButton(0))
         {
+
+
+            if (Input.mousePosition.y > controlBoundY)
+                return;
 
             if (!plank.movable)
                 return;
