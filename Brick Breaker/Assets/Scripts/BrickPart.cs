@@ -5,7 +5,7 @@ using UnityEngine;
 public class BrickPart : MonoBehaviour
 {
 
-    private const float EXPLOTION_RADIUS = 5F;
+    private const float EXPLOTION_RADIUS = 5.5F;
 
 
     [SerializeField] private GameObject cellPrefab = null;
@@ -35,18 +35,17 @@ public class BrickPart : MonoBehaviour
         if (other.collider.tag == "Ground" || other.collider.tag == "Plank" || other.collider.tag == "SideWall")
         {
 
+            Destroy(gameObject);
             GameObject cell = Instantiate(cellPrefab, transform.position, transform.rotation);
 
             float explotionForce = other.impulse.magnitude;
 
             Rigidbody[] rigidbodies = cell.GetComponentsInChildren<Rigidbody>();
-            print(rigidbodies.Length);
-            print("force " + explotionForce);
+           
             foreach (var item in rigidbodies)
             {
-                item.AddExplosionForce(explotionForce, transform.position, EXPLOTION_RADIUS);
+                item.AddExplosionForce(explotionForce * 10, transform.position, EXPLOTION_RADIUS);
             }
-            Destroy(gameObject);
 
         }
 
