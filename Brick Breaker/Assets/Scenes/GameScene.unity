@@ -2430,7 +2430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -30}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 358.17395, y: 80}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &393230888
@@ -2777,7 +2777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -30, y: -30}
+  m_AnchoredPosition: {x: -50, y: -50}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &442836451
@@ -6839,7 +6839,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingTransform: {fileID: 878881010}
   gameOverScoreText: {fileID: 1283670983}
-  skillExplanationPanel: {fileID: 0}
   pauseMenu: {fileID: 1538488919}
   gameOverMenu: {fileID: 1640593654}
   blockPrefab: {fileID: 6629269484043399652, guid: c37010f492314458d8d37d585ca0675c,
@@ -8678,7 +8677,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 30, y: -30}
+  m_AnchoredPosition: {x: 50, y: -50}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2062552657
