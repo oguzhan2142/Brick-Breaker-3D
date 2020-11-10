@@ -12,21 +12,7 @@ public class ScreenTouch : MonoBehaviour
 
     [SerializeField] private Plank plank = null;
 
-
-
-
-
-
-
-
-
     private float speed = 8f;
-
-    private void Start()
-    {
-
-
-    }
 
     void Update()
     {
@@ -36,7 +22,7 @@ public class ScreenTouch : MonoBehaviour
 
             if (!plank.movable)
                 return;
-                
+
             Vector3 plankScreen = Camera.main.WorldToScreenPoint(plank.transform.position);
 
             Vector3 touchedPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, plankScreen.y, plankScreen.z));

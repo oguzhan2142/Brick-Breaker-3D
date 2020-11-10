@@ -173,10 +173,32 @@ public class Ball : MonoBehaviour
 
         if (screenPosition.x < 0)
         {
+
+
+            float ratio = Mathf.Abs(rb.velocity.y / rb.velocity.x);
+
+
+
+            if (ratio < 0.45)
+            {
+                float oldMagnitute = rb.velocity.magnitude;
+                rb.velocity = new Vector3(0.5f, 0.5f, rb.velocity.normalized.z) * oldMagnitute;
+            }
+
+
+
             rb.velocity = new Vector3(Mathf.Abs(rb.velocity.x), rb.velocity.y, rb.velocity.z);
+
         }
         if (screenPosition.x > Screen.width)
         {
+            float ratio = Mathf.Abs(rb.velocity.y / rb.velocity.x);
+
+            if (ratio < 0.45)
+            {
+                float oldMagnitute = rb.velocity.magnitude;
+                rb.velocity = new Vector3(-0.5f, 0.5f, rb.velocity.normalized.z) * oldMagnitute;
+            }
             rb.velocity = new Vector3(-Mathf.Abs(rb.velocity.x), rb.velocity.y, rb.velocity.z);
         }
     }
