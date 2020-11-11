@@ -11,7 +11,7 @@ public class PlankSound : MonoBehaviour
 
     [SerializeField] private AudioClip[] hitPlankSounds = null;
     [SerializeField] private AudioClip hitMetalSound = null;
-
+    [SerializeField] private AudioClip coinSound = null;
 
     void Start()
     {
@@ -36,6 +36,12 @@ public class PlankSound : MonoBehaviour
                     source.Play();
                 }
             }
+        }
+
+        if (other.collider.tag == "CopperCoin" || other.collider.tag == "SilverCoin" || other.collider.tag == "GoldCoin")
+        {
+            source.clip = coinSound;
+            source.Play();
         }
     }
 

@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public static int level = 1;
 
     public TextMeshProUGUI gameOverScoreText = null;
-    public static int budged = 0;
+    public static int budged = 40;
 
     [SerializeField] private GameObject pauseMenu = null;
     [SerializeField] private GameObject gameOverMenu = null;
@@ -29,9 +29,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI budgedText = null;
 
 
-
+    private AudioSource audioSource;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         levelText.text = "Level " + level.ToString();
         levelText.GetComponent<Animation>().Play();
         Time.timeScale = 1;
@@ -46,11 +47,14 @@ public class GameManager : MonoBehaviour
 
     public void instantiateBlock()
     {
+
         level++;
         levelText.text = "Level " + level.ToString();
         levelText.GetComponent<Animation>().Play();
+        audioSource.Play();
         BLOCK_SPEED = BLOCK_SPEED * BLOCK_SPEED_INCREASE_RATE;
         Instantiate(blockPrefab, startingTransform.position, startingTransform.rotation);
+        
     }
 
 
