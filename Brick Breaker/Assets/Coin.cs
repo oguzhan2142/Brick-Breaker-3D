@@ -9,13 +9,12 @@ public class Coin : MonoBehaviour
     public static int SILVER_COIN_VALUE = 30;
     public static int COPPER_COIN_VALUE = 10;
 
-
+    private const float SPEED = 1f;
 
     void Update()
     {
-
         var pos = transform.position;
-        pos.y -= Time.deltaTime * 1;
+        pos.y -= Time.deltaTime * SPEED;
         transform.position = pos;
 
         if (transform.position.y < 0)
@@ -28,7 +27,7 @@ public class Coin : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
 
-        print(other.collider.name);
+
 
         if (other.collider.tag == "Plank")
         {

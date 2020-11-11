@@ -10,6 +10,9 @@ TagManager:
   - BrickPart
   - SideWall
   - Block
+  - GoldCoin
+  - SilverCoin
+  - CopperCoin
   - Coin
   layers:
   - Default
@@ -23,7 +26,7 @@ TagManager:
   - CellLayer
   - BallLayer
   - BrickLayer
-  - 
+  - CoinLayer
   - 
   - 
   - 

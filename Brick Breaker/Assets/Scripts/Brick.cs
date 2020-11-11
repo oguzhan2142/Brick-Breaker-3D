@@ -10,14 +10,11 @@ public class Brick : MonoBehaviour
     private const int SILVER_CHANCE = 30;
     private const int GOLD_CHANCE = 10;
 
-
-
-
     [SerializeField] private GameObject[] coinPrefabs = null;
 
     void Update()
     {
-        if (transform.childCount == 0)
+        if (transform.childCount == 0 )
         {
 
             int random = Random.Range(0, 50);
@@ -28,6 +25,7 @@ public class Brick : MonoBehaviour
             }
             else if (random < SILVER_CHANCE)
             {
+                
                 Instantiate(coinPrefabs[1], transform.position, coinPrefabs[1].transform.rotation);
             }
             else if (random < GOLD_CHANCE)
