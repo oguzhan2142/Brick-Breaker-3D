@@ -13,6 +13,7 @@ public class SkillSelectPanel : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI cooldownInfoText = null;
     [SerializeField] private TextMeshProUGUI explanationText = null;
+    [SerializeField] private TextMeshProUGUI costText = null;
     [SerializeField] private Transform currentSkills = null;
 
     [HideInInspector] public Skill selectedSkill = null;
@@ -45,7 +46,8 @@ public class SkillSelectPanel : MonoBehaviour
 
 
         explanationText.text = selectedSkill.explanation;
-        cooldownInfoText.text = selectedSkill.cooldown.ToString();
+        costText.text = selectedSkill.cost.ToString() + " birim";
+        cooldownInfoText.text = selectedSkill.cooldown.ToString() + " sn";
     }
 
 

@@ -148,6 +148,7 @@ MonoBehaviour:
   avaibleToUse: 1
   cooldown: 10
   explanation: Blogu bir miktar yukari yukseltir
+  cost: 50
   sprite: {fileID: 21300000, guid: fccc7156f5a20d847b6f18880c73d76d, type: 3}
 --- !u!1 &2625063327789895774
 GameObject:

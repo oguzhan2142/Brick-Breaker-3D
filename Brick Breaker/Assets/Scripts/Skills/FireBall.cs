@@ -42,6 +42,11 @@ public class FireBall : Skill
 
     public void useSkill()
     {
+
+        if (!isBudgedEnough())
+            return;
+
+
         if (avaibleToUse)
         {
             ball.materialState = Ball.MaterialState.flame;

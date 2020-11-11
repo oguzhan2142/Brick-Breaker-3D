@@ -21,7 +21,7 @@ public class GoldenPlank : Skill
     protected override void Start()
     {
         base.Start();
-       
+
         plankRenderer = GameObject.FindWithTag("Plank").GetComponent<Renderer>();
         GetComponent<Button>().onClick.AddListener(use);
     }
@@ -55,6 +55,10 @@ public class GoldenPlank : Skill
 
     public void use()
     {
+
+        if (!isBudgedEnough())
+            return;
+
 
         if (avaibleToUse)
         {

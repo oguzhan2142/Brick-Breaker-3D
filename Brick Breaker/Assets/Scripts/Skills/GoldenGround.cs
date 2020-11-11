@@ -27,7 +27,7 @@ public class GoldenGround : Skill
     protected override void Start()
     {
         base.Start();
-    
+
         groundRenderer = GameObject.FindWithTag("Ground").GetComponent<Renderer>();
         GetComponent<Button>().onClick.AddListener(use);
     }
@@ -61,7 +61,9 @@ public class GoldenGround : Skill
 
     public void use()
     {
-
+        if (!isBudgedEnough())
+            return;
+            
         if (avaibleToUse)
         {
             materialState = MaterialState.stone;

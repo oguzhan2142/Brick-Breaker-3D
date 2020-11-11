@@ -301,6 +301,7 @@ MonoBehaviour:
   avaibleToUse: 1
   cooldown: 10
   explanation: "Yerin \u015Fekil de\u011Fi\u015Ftirerek topu sektirmesini sa\u011Flar"
+  cost: 30
   sprite: {fileID: 21300000, guid: 88571f6f8e9dd9c40befc8de63c906fd, type: 3}
   normalMaterial: {fileID: 2100000, guid: 47db442db4ba54d8da6a20d6cf91b6d3, type: 2}
   goldMaterial: {fileID: 2100000, guid: c47ae20bdb236435aa8b2522f62bb4b4, type: 2}

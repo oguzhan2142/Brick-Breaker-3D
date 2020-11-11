@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu = null;
     [SerializeField] private GameObject gameOverMenu = null;
     [SerializeField] private GameObject blockPrefab = null;
+    [SerializeField] private GameObject settingsMenu = null;
     [SerializeField] private Text levelText = null;
     [SerializeField] private TextMeshProUGUI budgedText = null;
 
@@ -57,6 +58,12 @@ public class GameManager : MonoBehaviour
     {
         gameOverMenu.SetActive(true);
         gameOverScoreText.text = score.ToString();
+    }
+
+    public void openSettings()
+    {
+        settingsMenu.SetActive(true);
+
     }
 
 

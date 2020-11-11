@@ -23,6 +23,7 @@ public abstract class Skill : MonoBehaviour
 
     public float cooldown;
     public string explanation;
+    public int cost;
     public Sprite sprite;
 
     protected virtual void Awake()
@@ -36,6 +37,19 @@ public abstract class Skill : MonoBehaviour
         skillButton = GetComponent<Button>();
         ball = GameObject.FindGameObjectWithTag("Ball").GetComponent<Ball>();
         statePanel.SetActive(false);
+    }
+
+
+    protected bool isBudgedEnough()
+    {
+
+        if (GameManager.budged >= cost)
+        {
+            GameManager.budged -= cost;
+            return true;
+        }
+
+        return false;
     }
 
 

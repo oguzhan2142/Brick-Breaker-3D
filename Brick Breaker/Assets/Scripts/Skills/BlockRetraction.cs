@@ -26,6 +26,11 @@ public class BlockRetraction : Skill
 
     private void use()
     {
+
+        if (!isBudgedEnough())
+            return;
+
+            
         GameObject currentBlock = GameObject.FindGameObjectWithTag("Block");
 
         if (avaibleToUse && currentBlock != null)

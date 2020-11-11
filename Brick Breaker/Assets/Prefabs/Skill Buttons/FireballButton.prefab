@@ -302,4 +302,5 @@ MonoBehaviour:
   cooldown: 20
   explanation: "Topu aniden maksimum h\u0131z\u0131na ula\u015Ft\u0131rarak topu
     g\xFC\xE7lendirir"
+  cost: 10
   sprite: {fileID: 21300000, guid: dd25e00ba744112468a156138bf652ae, type: 3}

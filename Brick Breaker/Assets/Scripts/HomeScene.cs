@@ -12,7 +12,7 @@ public class HomeScene : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI scoresText = null;
     [SerializeField] private GameObject highScoresPanel = null;
-
+    [SerializeField] private GameObject settingsPanel = null;
     public void startGame()
     {
         Time.timeScale = 1;
@@ -43,7 +43,7 @@ public class HomeScene : MonoBehaviour
 
     public void settings()
     {
-
+        settingsPanel.SetActive(true);
     }
 
 
