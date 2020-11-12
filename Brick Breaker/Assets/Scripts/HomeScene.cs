@@ -13,14 +13,30 @@ public class HomeScene : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoresText = null;
     [SerializeField] private GameObject highScoresPanel = null;
     [SerializeField] private GameObject settingsPanel = null;
+
+
+    [SerializeField] private Animation cameraAnim = null;
+    [SerializeField] private Animation navPanelAnim = null;
+    [SerializeField] private Animation arrowsAnim = null;
+    [SerializeField] private Animation headerAnim = null;
+
+
+
     public void startGame()
     {
         Time.timeScale = 1;
         Plank.isDead = false;
         GameManager.score = 0;
         GameManager.level = 1;
-        SceneManager.LoadScene("GameScene");
+
+        cameraAnim.Play("HomeCamera");
+        navPanelAnim.Play("NavButtons");
+        arrowsAnim.Play("ArrowButtons");
+        headerAnim.Play("HeaderAnim");
     }
+
+
+  
 
     public void highestScores()
     {

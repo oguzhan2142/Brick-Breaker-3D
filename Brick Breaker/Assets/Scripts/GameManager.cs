@@ -61,7 +61,6 @@ public class GameManager : MonoBehaviour
 
     public void openPopupPanel(Vector3 position, int value, Color color)
     {
-
         popupPanel.GetComponent<CanvasGroup>().alpha = 1;
         popupPanel.transform.position = position;
         string prefix = color.Equals(Color.green) ? "+" : "-";

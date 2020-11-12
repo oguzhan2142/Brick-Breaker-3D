@@ -1292,6 +1292,7 @@ GameObject:
   - component: {fileID: 613828079}
   - component: {fileID: 613828078}
   - component: {fileID: 613828077}
+  - component: {fileID: 613828080}
   m_Layer: 5
   m_Name: NavButtons
   m_TagString: Untagged
@@ -1383,6 +1384,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613828075}
   m_CullTransparentMesh: 0
+--- !u!111 &613828080
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613828075}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 701bbf7aa16d246628cab40f595db41d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &673496857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,6 +1632,7 @@ GameObject:
   - component: {fileID: 761327169}
   - component: {fileID: 761327171}
   - component: {fileID: 761327170}
+  - component: {fileID: 761327172}
   m_Layer: 5
   m_Name: ArrowButtonsPanel
   m_TagString: Untagged
@@ -1681,6 +1699,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761327168}
   m_CullTransparentMesh: 0
+--- !u!111 &761327172
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761327168}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 78b73e0f63b1a41d1a40a4b325359d3b, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &775666519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1917,6 +1951,10 @@ MonoBehaviour:
   scoresText: {fileID: 248003759}
   highScoresPanel: {fileID: 1340759594}
   settingsPanel: {fileID: 191963363}
+  cameraAnim: {fileID: 963194230}
+  navPanelAnim: {fileID: 613828080}
+  arrowsAnim: {fileID: 761327172}
+  headerAnim: {fileID: 2070033990}
 --- !u!4 &870704232
 Transform:
   m_ObjectHideFlags: 0
@@ -2024,6 +2062,8 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194230}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2096,6 +2136,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -1.8600001, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da3ea0520252f4072ac3687a689a83ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!111 &963194230
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 29826328687d04bf59017b56930290e9, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &993064696
 GameObject:
   m_ObjectHideFlags: 0
@@ -3365,6 +3433,7 @@ GameObject:
   - component: {fileID: 2070033987}
   - component: {fileID: 2070033989}
   - component: {fileID: 2070033988}
+  - component: {fileID: 2070033990}
   m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
@@ -3490,6 +3559,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2070033986}
   m_CullTransparentMesh: 0
+--- !u!111 &2070033990
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070033986}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 19e35d639cb9d4aa39341790a3639897, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &2096896310
 GameObject:
   m_ObjectHideFlags: 0
