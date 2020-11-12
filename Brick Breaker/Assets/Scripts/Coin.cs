@@ -9,12 +9,21 @@ public class Coin : MonoBehaviour
     public static int SILVER_COIN_VALUE = 30;
     public static int COPPER_COIN_VALUE = 10;
 
-    private const float SPEED = 1f;
+    private const float VERTICAL_SPEED = 1f;
+    private const float HORIZONTAL_SPEED = 0.2F;
+
+    private Transform plank;
+
+    void Start()
+    {
+        plank = GameObject.FindGameObjectWithTag("Plank").transform;
+    }
+
 
     void Update()
     {
         var pos = transform.position;
-        pos.y -= Time.deltaTime * SPEED;
+        pos.y -= Time.deltaTime * VERTICAL_SPEED;
         transform.position = pos;
 
         if (transform.position.y < 0)

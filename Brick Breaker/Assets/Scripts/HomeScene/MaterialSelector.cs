@@ -11,10 +11,20 @@ public abstract class MaterialSelector : MonoBehaviour
 
     protected int index = 0;
 
+    [SerializeField] private Transform arrows = null;
+
     protected virtual void Start()
     {
         ren = GetComponent<Renderer>();
         anim = GetComponent<Animation>();
+
+
+        var screen = Camera.main.WorldToScreenPoint(transform.position);
+
+
+
+        arrows.transform.position = screen;
+
     }
 
 
