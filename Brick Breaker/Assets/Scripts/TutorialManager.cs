@@ -11,7 +11,9 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject[] tutorialPanels = null;
     [SerializeField] private Ball ball = null;
     [SerializeField] private Transform horizontalLine = null;
-
+    [SerializeField] private GameObject mainInfoPanel = null;
+    [SerializeField] private GameObject skillSelectInfoPanel = null;
+    [SerializeField] private GameObject skillSelectPanel = null;
     private float noMovementTimer = 0;
 
     void Start()
@@ -44,6 +46,44 @@ public class TutorialManager : MonoBehaviour
             tutorialPanels[0].SetActive(false);
         }
 
+
+        if (Input.GetMouseButtonDown(0))
+        {
+
+            if (mainInfoPanel.activeInHierarchy || skillSelectInfoPanel.activeInHierarchy)
+            {
+                mainInfoPanel.SetActive(false);
+                skillSelectInfoPanel.SetActive(false);
+
+                if (!skillSelectPanel.activeInHierarchy)
+                {
+                    Time.timeScale = 1;
+                }
+            }
+
+        }
+
+
     }
 
+
+    public void mainInfoPanelBtn()
+    {
+        // demekki skill select panel acik
+        if (skillSelectPanel.activeInHierarchy)
+        {
+            skillSelectInfoPanel.SetActive(!mainInfoPanel.activeInHierarchy);
+        }
+        else
+        {
+            mainInfoPanel.SetActive(!mainInfoPanel.activeInHierarchy);
+        }
+
+
+        Time.timeScale = mainInfoPanel.activeInHierarchy || skillSelectInfoPanel.activeInHierarchy ? 0 : 1;
+
+
+
+
+    }
 }
