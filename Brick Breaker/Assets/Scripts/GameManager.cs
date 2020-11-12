@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.IO;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -25,11 +22,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverMenu = null;
     [SerializeField] private GameObject blockPrefab = null;
     [SerializeField] private GameObject settingsMenu = null;
+    [SerializeField] private GameObject popupPanel = null;
     [SerializeField] private Text levelText = null;
     [SerializeField] private TextMeshProUGUI budgedText = null;
 
     private MaterialInitilizer materialInitilizer;
     private AudioSource audioSource;
+
+
     void Start()
     {
         materialInitilizer = GetComponent<MaterialInitilizer>();
@@ -57,6 +57,17 @@ public class GameManager : MonoBehaviour
         GameObject block = Instantiate(blockPrefab, startingTransform.position, startingTransform.rotation);
         materialInitilizer.changeBlockMaterial(block);
 
+    }
+
+    public void openPopupPanel(Vector3 position, int value, Color color)
+    {
+
+        popupPanel.GetComponent<CanvasGroup>().alpha = 1;
+        popupPanel.transform.position = position;
+        string prefix = color.Equals(Color.green) ? "+" : "-";
+        popupPanel.transform.Find("text").GetComponent<TextMeshProUGUI>().text = prefix + value.ToString();
+        popupPanel.transform.Find("text").GetComponent<TextMeshProUGUI>().color = color;
+        popupPanel.GetComponent<Animation>().Play("PopupCloseAnim");
     }
 
 

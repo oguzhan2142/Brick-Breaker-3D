@@ -14,9 +14,13 @@ public class Coin : MonoBehaviour
 
     private Transform plank;
 
+
+    private GameManager gameManager;
+
     void Start()
     {
         plank = GameObject.FindGameObjectWithTag("Plank").transform;
+        gameManager = GameObject.FindObjectOfType<GameManager>();
     }
 
 
@@ -57,21 +61,27 @@ public class Coin : MonoBehaviour
     {
 
 
+        var screenPos = Camera.main.WorldToScreenPoint(plank.transform.position);
+
 
         if (other.collider.tag == "Plank")
         {
             if (tag == "GoldCoin")
             {
                 GameManager.budged += GOLD_COIN_VALUE;
+                gameManager.openPopupPanel(screenPos, GOLD_COIN_VALUE, Color.green);
             }
             else if (tag == "SilverCoin")
             {
                 GameManager.budged += SILVER_COIN_VALUE;
+                gameManager.openPopupPanel(screenPos, SILVER_COIN_VALUE, Color.green);
             }
             else if (tag == "CopperCoin")
             {
                 GameManager.budged += COPPER_COIN_VALUE;
+                gameManager.openPopupPanel(screenPos, COPPER_COIN_VALUE, Color.green);
             }
+
             Destroy(gameObject);
         }
 

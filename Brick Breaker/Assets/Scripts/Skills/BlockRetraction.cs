@@ -8,7 +8,6 @@ public class BlockRetraction : Skill
 
     private const float RISE_AMOUNT = 1.5F;
 
-    private GameManager gameManager;
 
     protected override void Start()
     {

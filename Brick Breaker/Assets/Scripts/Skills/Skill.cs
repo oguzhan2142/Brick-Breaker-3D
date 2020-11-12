@@ -25,6 +25,7 @@ public abstract class Skill : MonoBehaviour
     public string explanation;
     public int cost;
     public Sprite sprite;
+    protected GameManager gameManager;
 
     protected virtual void Awake()
     {
@@ -37,6 +38,7 @@ public abstract class Skill : MonoBehaviour
         skillButton = GetComponent<Button>();
         ball = GameObject.FindGameObjectWithTag("Ball").GetComponent<Ball>();
         statePanel.SetActive(false);
+        gameManager = GameObject.FindObjectOfType<GameManager>();
     }
 
 
@@ -46,6 +48,10 @@ public abstract class Skill : MonoBehaviour
         if (GameManager.budged >= cost)
         {
             GameManager.budged -= cost;
+
+
+            var pos = new Vector3(Screen.width / 2, Screen.height / 2, 0);
+            gameManager.openPopupPanel(pos, cost, Color.red);
             return true;
         }
 
