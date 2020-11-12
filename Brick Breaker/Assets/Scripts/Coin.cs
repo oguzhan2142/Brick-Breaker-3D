@@ -23,7 +23,27 @@ public class Coin : MonoBehaviour
     void Update()
     {
         var pos = transform.position;
+
+        float directionSign;
+
+
+        if (pos.x > plank.position.x)
+        {
+            directionSign = -1;
+        }
+        else if (pos.x < plank.position.x)
+        {
+            directionSign = 1;
+        }
+        else
+        {
+            directionSign = 0;
+        }
+
         pos.y -= Time.deltaTime * VERTICAL_SPEED;
+        pos.x += directionSign * Time.deltaTime * HORIZONTAL_SPEED;
+
+
         transform.position = pos;
 
         if (transform.position.y < 0)
