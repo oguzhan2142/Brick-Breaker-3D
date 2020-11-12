@@ -14,7 +14,7 @@ public class Brick : MonoBehaviour
 
     void Update()
     {
-        if (transform.childCount == 0 )
+        if (transform.childCount == 0)
         {
 
             int random = Random.Range(0, 50);
@@ -25,7 +25,7 @@ public class Brick : MonoBehaviour
             }
             else if (random < SILVER_CHANCE)
             {
-                
+
                 Instantiate(coinPrefabs[1], transform.position, coinPrefabs[1].transform.rotation);
             }
             else if (random < GOLD_CHANCE)

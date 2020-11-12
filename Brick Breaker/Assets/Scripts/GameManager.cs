@@ -28,10 +28,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text levelText = null;
     [SerializeField] private TextMeshProUGUI budgedText = null;
 
-
+    private MaterialInitilizer materialInitilizer;
     private AudioSource audioSource;
     void Start()
     {
+        materialInitilizer = GetComponent<MaterialInitilizer>();
         audioSource = GetComponent<AudioSource>();
         levelText.text = "Level " + level.ToString();
         levelText.GetComponent<Animation>().Play();
@@ -53,8 +54,9 @@ public class GameManager : MonoBehaviour
         levelText.GetComponent<Animation>().Play();
         audioSource.Play();
         BLOCK_SPEED = BLOCK_SPEED * BLOCK_SPEED_INCREASE_RATE;
-        Instantiate(blockPrefab, startingTransform.position, startingTransform.rotation);
-        
+        GameObject block = Instantiate(blockPrefab, startingTransform.position, startingTransform.rotation);
+        materialInitilizer.changeBlockMaterial(block);
+
     }
 
 

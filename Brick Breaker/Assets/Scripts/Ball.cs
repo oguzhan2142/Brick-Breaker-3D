@@ -45,6 +45,9 @@ public class Ball : MonoBehaviour
     private Vector3 lastFrameVelocity;
 
     private Vector3 screenPosition;
+
+
+
     private void Awake()
     {
         ballState = BallState.FirstShoot;
@@ -58,6 +61,7 @@ public class Ball : MonoBehaviour
         ren = GetComponent<Renderer>();
         materialState = MaterialState.normal;
         currentBlock = GameObject.FindWithTag("Block").GetComponent<Block>();
+
     }
 
 
@@ -85,7 +89,7 @@ public class Ball : MonoBehaviour
         }
 
 
-        updateMaterial();
+
 
         updateBallState();
 

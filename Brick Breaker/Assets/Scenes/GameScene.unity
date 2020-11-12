@@ -8533,6 +8533,7 @@ GameObject:
   - component: {fileID: 1563985564}
   - component: {fileID: 1563985563}
   - component: {fileID: 1563985565}
+  - component: {fileID: 1563985566}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -8671,6 +8672,59 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1563985566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563985562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d99700b28214327a799a88eb766ee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockMaterials:
+  - {fileID: 2100000, guid: 3e46b23eb6516a34e8abad106a45e8c4, type: 2}
+  - {fileID: 2100000, guid: e66d282c1a589b740978ed3a03245fb4, type: 2}
+  - {fileID: 2100000, guid: 27348c2da388ee24aadf8472f82ad963, type: 2}
+  - {fileID: 2100000, guid: 171d305832c1ff8439b29868a108e89f, type: 2}
+  - {fileID: 2100000, guid: ab401e780d35a3e45ab242a36dc42d51, type: 2}
+  - {fileID: 2100000, guid: 51f6d5f3d3b2114498dd47d6f5b59053, type: 2}
+  - {fileID: 2100000, guid: 8d0b4475c38df4240b5c2aba4d0f9182, type: 2}
+  - {fileID: 2100000, guid: 984311b2037358d418cdd4d650f62c52, type: 2}
+  - {fileID: 2100000, guid: 77826ad27882dcf4e8feded3f4ef9411, type: 2}
+  - {fileID: 2100000, guid: 6eefc055ee419ea49af280cd42314208, type: 2}
+  - {fileID: 2100000, guid: d162a9a77600c6847951c4dab77526bc, type: 2}
+  - {fileID: 2100000, guid: 1e61acfa4b0498b4e86cede97f83468b, type: 2}
+  - {fileID: 2100000, guid: 54f97bbe91406b0438be56a2f82a880e, type: 2}
+  - {fileID: 2100000, guid: 38f3f637bf4ee2f4985854efd0523b78, type: 2}
+  - {fileID: 2100000, guid: e75eb513962b3d042b8333dba21f4451, type: 2}
+  - {fileID: 2100000, guid: 14efce1c30a92df4e823b240f2830d0f, type: 2}
+  ballMaterials:
+  - {fileID: 2100000, guid: a03b81756c50b48e2887881df7974046, type: 2}
+  - {fileID: 2100000, guid: 799922369e58740838ea6ec21ba2c145, type: 2}
+  - {fileID: 2100000, guid: db255ba0b65744027963a7eb8e3d6c8d, type: 2}
+  - {fileID: 2100000, guid: f9b0f1c7dc8bdc44fa2beab1a14b1dc4, type: 2}
+  - {fileID: 2100000, guid: 13ff31df56b8b1745bb663dcb361accd, type: 2}
+  - {fileID: 2100000, guid: e42634845e02044edb46fa10b63c2405, type: 2}
+  - {fileID: 2100000, guid: 924b9b44feb724c4abc47fbc3dcf170e, type: 2}
+  - {fileID: 2100000, guid: fa4e89d2f95b146c08f4c38d17872efa, type: 2}
+  - {fileID: 2100000, guid: d7c670e271da64625ab7a9b2275e5046, type: 2}
+  plankMaterials:
+  - {fileID: 2100000, guid: 7156e268e37805d418febe9a51a751f0, type: 2}
+  - {fileID: 2100000, guid: 2ef54fb68ff4a714bbc74f4156fc4697, type: 2}
+  - {fileID: 2100000, guid: f266ba03e1218bf45b32f96554872ef8, type: 2}
+  - {fileID: 2100000, guid: ffdefc2c145dd1e4da521d300cf6f67f, type: 2}
+  - {fileID: 2100000, guid: 4f873e0411479e045ac4fc76fde8e45f, type: 2}
+  - {fileID: 2100000, guid: cfe01a842ca46d949b0a9e94f5864614, type: 2}
+  - {fileID: 2100000, guid: 5fdcc6dfd32238e4ebf0b6a35a712194, type: 2}
+  - {fileID: 2100000, guid: 0c78d08393d68fe4584a24393e825e13, type: 2}
+  - {fileID: 2100000, guid: 228f87cf739044f4091ad077a9397dd9, type: 2}
+  - {fileID: 2100000, guid: 4d0640d6c77aae345b3f366c388d8b6e, type: 2}
+  ballRenderer: {fileID: 993064699}
+  plankRenderer: {fileID: 110542046}
+  block: {fileID: 6629269483742148056}
 --- !u!1 &1567581487
 GameObject:
   m_ObjectHideFlags: 0
@@ -11960,3 +12014,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c37010f492314458d8d37d585ca0675c, type: 3}
+--- !u!1 &6629269483742148056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6629269484043399652, guid: c37010f492314458d8d37d585ca0675c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6629269483742148055}
+  m_PrefabAsset: {fileID: 0}
