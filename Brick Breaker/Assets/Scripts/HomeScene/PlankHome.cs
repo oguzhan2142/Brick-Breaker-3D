@@ -6,6 +6,12 @@ public class PlankHome : MaterialSelector
 {
     public const string KEY = "Plank";
 
+    protected override void Start()
+    {
+        base.Start();
+        index = PlayerPrefs.GetInt(KEY);
+        changeMaterial();
+    }
 
 
     void Update()

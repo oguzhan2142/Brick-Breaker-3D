@@ -9,11 +9,12 @@ public class BlockHome : MaterialSelector
 
     private Renderer[] renderers;
 
-
     protected override void Start()
     {
         base.Start();
         renderers = GetComponentsInChildren<Renderer>();
+        index = PlayerPrefs.GetInt(KEY);
+        changeMaterial();
     }
 
     public void rightBtn()

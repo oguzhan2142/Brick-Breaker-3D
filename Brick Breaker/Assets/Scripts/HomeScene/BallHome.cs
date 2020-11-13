@@ -7,6 +7,13 @@ public class BallHome : MaterialSelector
 
     public const string KEY = "Ball";
 
+    protected override void Start()
+    {
+        base.Start();
+        index = PlayerPrefs.GetInt(KEY);
+        changeMaterial();
+    }
+
     void Update()
     {
         PlayerPrefs.SetInt(KEY, index);

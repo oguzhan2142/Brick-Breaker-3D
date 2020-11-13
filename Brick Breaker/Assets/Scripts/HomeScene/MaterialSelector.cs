@@ -20,9 +20,6 @@ public abstract class MaterialSelector : MonoBehaviour
 
 
         var screen = Camera.main.WorldToScreenPoint(transform.position);
-
-
-
         arrows.transform.position = screen;
 
     }
@@ -47,14 +44,14 @@ public abstract class MaterialSelector : MonoBehaviour
     {
         index++;
         if (index > materials.Length - 1)
-            index = materials.Length - 1;
+            index = 0;
     }
 
     protected void decreaseIndex()
     {
         index--;
         if (index < 0)
-            index = 0;
+            index = materials.Length - 1;
     }
 
 
