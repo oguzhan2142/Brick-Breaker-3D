@@ -20,7 +20,7 @@ public class Ball : MonoBehaviour
     [SerializeField] private Plank plank = null;
     [SerializeField] private Material flameMaterial = null;
     [SerializeField] private Material normalMaterial = null;
-    [SerializeField] private GameObject fireObject = null;
+    public GameObject fireObject = null;
 
     public enum BallState { FirstShoot, OnAir }
     public BallState ballState;

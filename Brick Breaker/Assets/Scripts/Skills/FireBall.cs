@@ -33,11 +33,19 @@ public class FireBall : Skill
         }
         if (ball.rb.velocity != Vector3.zero)
         {
-
             float angle = Mathf.Atan2(ball.rb.velocity.y, ball.rb.velocity.x) * Mathf.Rad2Deg;
-            fireTransform.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
+            fireTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
+
+        if (isFireballState)
+        {
+            ball.fireObject.SetActive(true);
+        }
+        else
+        {
+            ball.fireObject.SetActive(false);
+        }
+
     }
 
     public void useSkill()
