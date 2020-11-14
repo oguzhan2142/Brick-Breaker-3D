@@ -12,7 +12,7 @@ public class ScreenTouch : MonoBehaviour
 
     [SerializeField] private Plank plank = null;
 
-    private float speed = 8f;
+    private float speed = 15f;
 
 
     [SerializeField] private Transform skillsPanel = null;

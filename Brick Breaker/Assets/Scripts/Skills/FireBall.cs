@@ -6,16 +6,11 @@ using UnityEngine.UI;
 public class FireBall : Skill
 {
 
-    private Transform fireTransform = null;
-
-
-
     protected override void Start()
     {
         base.Start();
 
 
-        fireTransform = ball.transform.Find("Fire");
         GetComponent<Button>().onClick.AddListener(useSkill);
     }
 
@@ -34,7 +29,7 @@ public class FireBall : Skill
         if (ball.rb.velocity != Vector3.zero)
         {
             float angle = Mathf.Atan2(ball.rb.velocity.y, ball.rb.velocity.x) * Mathf.Rad2Deg;
-            fireTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            ball.fireObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
 
         if (isFireballState)

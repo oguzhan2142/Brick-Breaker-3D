@@ -18,8 +18,7 @@ public class Ball : MonoBehaviour
 
     public Rigidbody rb = null;
     [SerializeField] private Plank plank = null;
-    [SerializeField] private Material flameMaterial = null;
-    [SerializeField] private Material normalMaterial = null;
+
     public GameObject fireObject = null;
 
     public enum BallState { FirstShoot, OnAir }
@@ -83,12 +82,6 @@ public class Ball : MonoBehaviour
         }
 
 
-        if (!Plank.isDead)
-        {
-            slowTimeWhenBallFalling();
-        }
-
-
 
 
         updateBallState();
@@ -113,30 +106,6 @@ public class Ball : MonoBehaviour
     }
 
 
-    private void slowTimeWhenBallFalling()
-    {
-        if (!Skill.isGoldenGroundState)
-        {
-            if (rb.velocity.y < 0)
-            {
-                if (transform.position.y < plank.transform.position.y)
-                {
-                    if (Time.timeScale == 1)
-                    {
-                        Time.timeScale = SLOW_TIMESCALE_MODE;
-                    }
-                }
-            }
-        }
-        else
-        {
-            if (Time.timeScale == SLOW_TIMESCALE_MODE)
-            {
-                Time.timeScale = 1;
-            }
-
-        }
-    }
 
     private void calculateHitVector()
     {
@@ -146,7 +115,7 @@ public class Ball : MonoBehaviour
         dirMagnitute = dir.magnitude;
         Vector3 dirNormalized = dir.normalized;
         power = dirMagnitute / MAX_MAGNITUTE * MAX_POWER;
-        hitVector = new Vector3(dirNormalized.x, dirNormalized.y, 0) * power;
+        hitVector = new Vector3(dirNormalized.x, dirNormalized.y, 0) * MAX_POWER;
     }
 
     private void drawLine()
@@ -156,20 +125,7 @@ public class Ball : MonoBehaviour
         lineRenderer.SetPosition(1, (hitVector.normalized * LINE_LENGTH) + transform.position);
     }
 
-    private void updateMaterial()
-    {
-        if (materialState.Equals(MaterialState.normal) && !ren.material.Equals(normalMaterial))
-        {
-            ren.material = normalMaterial;
-            fireObject.SetActive(false);
-        }
-        else if (materialState.Equals(MaterialState.flame) && !ren.material.Equals(flameMaterial))
-        {
-            ren.material = flameMaterial;
-            fireObject.SetActive(true);
-
-        }
-    }
+   
 
     private void horizontalBoundsCheck()
     {

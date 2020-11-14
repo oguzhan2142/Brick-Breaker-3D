@@ -32,9 +32,6 @@ public class Plank : MonoBehaviour
         bloodyBackground.color = color;
 
 
-
-
-
         if (bloodiness > 0)
         {
             timer += Time.deltaTime;
