@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 using UnityEngine.UI;
 
 public class SkillButton : MonoBehaviour
@@ -11,6 +12,8 @@ public class SkillButton : MonoBehaviour
 
 
     [HideInInspector] public GameObject selectedImage = null;
+    public VideoClip videoClip = null;
+
 
     void Start()
     {
@@ -30,6 +33,9 @@ public class SkillButton : MonoBehaviour
         }
         skillSelectPanel.disableAllSelectedImages();
         selectedImage.SetActive(true);
+        skillSelectPanel.videoPlayer.clip = videoClip;
+        skillSelectPanel.videoPlayer.isLooping = true;
+        skillSelectPanel.videoPlayer.Play();
         skillSelectPanel.selectedSkill = this.skill;
     }
 }

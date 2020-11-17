@@ -15,15 +15,9 @@ public class SkillManager : MonoBehaviour
     [SerializeField] private Transform pendingSkillsContainer = null;
     [SerializeField] private GameObject pendingBackground = null;
 
-    void Start()
-    {
-        Instantiate(skillButtonPrefabs[1], skillsTransform, false);
-        Instantiate(skillButtonPrefabs[2], skillsTransform, false);
-    }
-
-
     private void Update()
-    {
+    {       
+
         if (areTherePendingSkills())
         {
             pendingBackground.SetActive(false);

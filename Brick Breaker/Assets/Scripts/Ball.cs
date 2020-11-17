@@ -125,7 +125,7 @@ public class Ball : MonoBehaviour
         lineRenderer.SetPosition(1, (hitVector.normalized * LINE_LENGTH) + transform.position);
     }
 
-   
+
 
     private void horizontalBoundsCheck()
     {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 using UnityEngine.UI;
 using TMPro;
 
@@ -18,6 +19,7 @@ public class SkillSelectPanel : MonoBehaviour
 
     [HideInInspector] public Skill selectedSkill = null;
 
+    public VideoPlayer videoPlayer = null;
 
     void Start()
     {
